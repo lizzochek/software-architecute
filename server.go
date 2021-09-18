@@ -10,7 +10,7 @@ import (
 func main() {
 
 	http.HandleFunc("/time", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, time.Now().String())
+		fmt.Fprintf(w, time.Now().Format(time.RFC3339))
 	})
 
 	fmt.Printf("Starting server at port 8795\n")
