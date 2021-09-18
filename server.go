@@ -14,9 +14,8 @@ type response struct {
 
 func main() {
 
-	result, _ := json.Marshal(response{time.Now().Format(time.RFC3339)})
-
 	http.HandleFunc("/time", func(w http.ResponseWriter, r *http.Request) {
+		result, _ := json.Marshal(response{time.Now().Format(time.RFC3339)})
 		fmt.Fprintf(w, string(result))
 	})
 
